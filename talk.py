@@ -19,6 +19,8 @@ def report(question):
         answer = "嘻嘻我也喜欢你哦"
     elif '你在干什么呀' in question:
         answer = "我在想你呀"
+    elif '我还有多少钱' in question:
+        answer = "0.99元"
     else:
         try:
         # 调用NLP接口实现智能回复
