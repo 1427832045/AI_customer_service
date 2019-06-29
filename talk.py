@@ -4,7 +4,7 @@
 import urllib.request
 import urllib.parse
 
-def report(question):
+def get_robot_reply(question):
     '''
     函数功能：对于特定问题进行特定回复，对于其他非特定问题进行智能回复
 
@@ -21,6 +21,8 @@ def report(question):
         answer = "我在想你呀"
     elif '我还有多少钱' in question:
         answer = "0.99元"
+    elif '我多少岁' in question:
+        answer = "20"
     else:
         try:
         # 调用NLP接口实现智能回复
@@ -33,9 +35,8 @@ def report(question):
 
 if __name__ == '__main__':
     # 测试
-    a = True
     print("输入你想说的话,想结束输入就输入结束\n")
-    while(a):
-        i = input("")
-        b = report(i)
-        print(b)
+    while True:
+        i = input("\n我说：")
+        b = get_robot_reply(i)
+        print("\n小魔仙说: %s" %b)
