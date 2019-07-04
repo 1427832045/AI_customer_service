@@ -35,7 +35,7 @@ def get_robot_reply(question):
     返回值：str，回复内容
     '''
 
-    if "你叫什么名字" in question:
+    if "你名字" in question:
         answer = "我是君哥"
     elif "我还有多少钱" in question:
         answer = "0.09元"
@@ -56,7 +56,7 @@ def get_robot_reply(question):
 
 @app.route("/wx", methods=["GET","POST"])
 def weixin_handle():
-    token = "ljk"
+    token = "xxx"
     signature = flask.request.args.get("signature")
     timestamp = flask.request.args.get("timestamp")
     nonce = flask.request.args.get("nonce")
@@ -85,9 +85,9 @@ def weixin_handle():
         if msg_type == "text":
         # 表示发送的是文本消息
         # 构造返回值，经由微信服务器回复给用消息内容
-            if "你叫什么名字" in msg_Content:
+            if "名字" in msg_Content:
                 txt = "李金楷"
-            elif "你们小组编号" in msg_Content:
+            elif "编号" in msg_Content:
                 txt = "10"
             elif "你们小组成员" in msg_Content:
                 txt = "袁海东青(组长) 李金楷 郭炳辰 沈彬 肖龙超 王君豪 杨中凡" 
